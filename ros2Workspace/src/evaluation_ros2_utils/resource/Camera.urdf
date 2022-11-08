@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="EvalWheeledRoboterLightSensor">
+    <webots>
+        <plugin type="evaluation_ros2_utils.camera_plugin.CameraPlugin">
+
+        </plugin>
+    </webots>
+</robot>

@@ -1,0 +1,3 @@
+[submodule "ros2Workspace/src/brickpi3_ros2/libs/BrickPi3"]
+	path = ros2Workspace/src/brickpi3_ros2/libs/BrickPi3
+	url = git@github.com:ReykCS/BrickPi3.git

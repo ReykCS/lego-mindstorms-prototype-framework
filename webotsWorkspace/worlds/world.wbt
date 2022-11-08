@@ -1,0 +1,74 @@
+#VRML_SIM R2022a utf8
+WorldInfo {
+  basicTimeStep 16
+}
+Viewpoint {
+  orientation -0.18597562474165039 -0.0377403913144999 0.9818292773519138 3.6544748681627985
+  position 2.170256406391495 1.4654719796860336 1.2975132323087715
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+CircleArena {
+  radius 3
+  floorTileSize 3 3
+  wallThickness 0.05
+  wallHeight 0.3
+}
+CompleteRobot {
+  translation 0 -0.32 0
+  controller ""
+}
+Robot {
+  translation -0.22 0 0.1
+  rotation -1 0 0 -5.307179586466759e-06
+  children [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+      }
+      device [
+        DEF pos PositionSensor {
+          name "pos"
+          noise 0.0174
+        }
+        RotationalMotor {
+          name "rot"
+          acceleration 20
+        }
+      ]
+      endPoint Solid {
+        translation 0 0 0.11
+        children [
+          Camera {
+            translation 0 0.06 0
+            rotation 2.653589999981315e-06 2.653589999981315e-06 0.9999999999929585 1.5708
+            fieldOfView 0.25
+            width 32
+            height 32
+          }
+          Compass {
+            zAxis FALSE
+          }
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Box {
+              size 0.1 0.1 0.1
+            }
+          }
+        ]
+      }
+    }
+    Shape {
+      appearance PBRAppearance {
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  controller "positionTest"
+}

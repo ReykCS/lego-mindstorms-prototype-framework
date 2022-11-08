@@ -1,0 +1,135 @@
+#VRML_SIM R2022a utf8
+WorldInfo {
+  contactProperties [
+    ContactProperties {
+      material2 "wheel2"
+      coulombFriction [
+        0.2
+      ]
+    }
+    ContactProperties {
+      material2 "wheel"
+      coulombFriction [
+        7
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation 0.008397289573173866 -0.9987264791477161 0.049748420849618946 5.683403358999353
+  position -3.113993197234662 0.001639846144615889 2.0389450036435317
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  translation 0 0 0.001
+  size 4 4
+  tileSize 8 8
+}
+Eval_LightSensor {
+  translation 0 0 0.02
+}
+DEF Borders Solid {
+  translation 0 0 0.001
+  children [
+    Transform {
+      translation 1.01 0 0.001
+      rotation 0 0 1 1.5707996938995747
+      children [
+        DEF STRIP Shape {
+          appearance DEF STRIP_APP PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry DEF STRIP_GEOM Plane {
+            size 2.04 0.02
+          }
+        }
+      ]
+    }
+    Transform {
+      translation -1.01 0 0.001
+      rotation 0 0 1 1.5707996938995747
+      children [
+        USE STRIP
+      ]
+    }
+    Transform {
+      translation 0 1.01 0.001
+      children [
+        USE STRIP
+      ]
+    }
+    Transform {
+      translation 0 -1.01 0.001
+      children [
+        USE STRIP
+      ]
+    }
+    Transform {
+      translation 0 0 0.001
+      children [
+        Shape {
+          appearance USE STRIP_APP
+          geometry Plane {
+            size 0.02 0.1
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 0 0 0.001
+      rotation 0 0 1 -1.5707996938995747
+      children [
+        Shape {
+          appearance USE STRIP_APP
+          geometry Plane {
+            size 0.02 0.1
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 3.03033e-06 0.9 0.001
+      rotation 0 0 1 -1.5707996938995747
+      children [
+        Shape {
+          appearance USE STRIP_APP
+          geometry Plane {
+            size 0.02 2
+          }
+        }
+      ]
+    }
+  ]
+  name "borders"
+}
+Robot {
+  translation 0 0 2
+  children [
+    Camera {
+      translation 0 0 -0.01
+      rotation 0 1 0 1.5707996938995747
+      name "top_camera"
+      fieldOfView 1
+      width 1080
+      height 1080
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.447059 0.623529 0.811765
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.02
+      }
+      castShadows FALSE
+    }
+  ]
+  name "camera"
+  controller "<extern>"
+}
